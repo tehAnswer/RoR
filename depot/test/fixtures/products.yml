@@ -10,7 +10,7 @@ two:
   title: Holy Text
   description: The devil is a lieeee.
   image_url: fake.gif
-  price: 0.01
+  price: 1
 
 ruby:
   title: Programming Ruby 1.9

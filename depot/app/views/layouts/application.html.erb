@@ -12,7 +12,7 @@
   <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Depot</a>
+      <a class="navbar-brand" href="/">Depot</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -38,7 +38,14 @@
 </div>
 <div id="main" class="col-xs-12 col-sm-6 col-md-8">
   <%= yield %>
+  <hr>
+<footer>
+  <i>
+  You have been here <%= pluralize(session[:counter], "time") %>.
+</i>
+</footer>
 </div>
+
 </body>
 </html>
 
