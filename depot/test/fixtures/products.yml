@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-game_of_thrones:
+one:
   title: Game of Thrones
   description: Spoiler spoiler.
   image_url: got.gif
   price: 1020.01
 
-holy_text:
+two:
   title: Holy Text
   description: The devil is a lieeee.
   image_url: fake.gif
