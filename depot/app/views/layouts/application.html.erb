@@ -2,28 +2,51 @@
 <html>
 <head>
   <title>Pragprog Books Online Store</title>
-  <%= stylesheet_link_tag    "application", media: "all",
+  <%= stylesheet_link_tag    "bootstrap", media: "all",
     "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %><!-- <label id="code.jlt"/> -->
-  <%= csrf_meta_tags %><!-- <label id="code.csrf"/> -->
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller.controller_name %>">
-  <div id="banner">
-    <%= image_tag("logo.png") %>
-    <%= @page_title || "dafq" %><!-- <label id="code.depot.e.title"/> -->
-  </div>
-  <div id="columns">
-    <div id="side">
-      <ul>
-        <li><a href="http://www....">Home</a></li>
-        <li><a href="http://www..../faq">Questions</a></li>
-        <li><a href="http://www..../news">News</a></li>
-        <li><a href="http://www..../contact">Contact</a></li>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Depot</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Questions</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Contact</a></li>
       </ul>
     </div>
-    <div id="main">
-      <%= yield %>
-    </div>
   </div>
+</nav>
+<div class="col-xs-3 col-md-2"  id ="aside">
+</div>
+<div id="main" class="col-xs-12 col-sm-6 col-md-8">
+  <%= yield %>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
