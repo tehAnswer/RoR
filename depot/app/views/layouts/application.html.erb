@@ -34,17 +34,14 @@
     </div>
   </div>
 </nav>
-<div class="col-xs-3 col-md-2"  id ="aside">
-</div>
-<div id="main" class="col-xs-12 col-sm-6 col-md-8">
+<div id="main" class="col-xs-12 col-sm-8 col-md-8">
   <%= yield %>
-  <hr>
-<footer>
-  <i>
-  You have been here <%= pluralize(session[:counter], "time") %>.
-</i>
-</footer>
 </div>
+
+<div class="col-xs-6 col-md-4"  id ="cart">
+  <%= render @cart %>
+</div>
+
 
 </body>
 </html>
