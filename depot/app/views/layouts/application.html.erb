@@ -39,7 +39,9 @@
 </div>
 
 <div class="col-xs-6 col-md-4"  id ="cart">
-  <%= render @cart %>
+  <% if @cart %>
+    <%= render @cart %>
+  <% end %>
 </div>
 
 
