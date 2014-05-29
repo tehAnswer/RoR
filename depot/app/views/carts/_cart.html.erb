@@ -1,0 +1,29 @@
+<h1>Cart</h1>
+<% if !cart.line_items.empty? %>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Product</td>
+			<th>Price</td>
+			<th>Quantity</td>
+			<th>Cost</td>
+			<th>Delete</td>
+		</tr>
+		<%= render(cart.line_items) %>
+		<tr>
+			<td colspan="1"><h4>Total</h4></td>
+			<td colspan="4"><h4><%= number_to_currency(cart.total_price) %></h4></td>
+		</tr>
+	</thead>
+</table>
+<div>
+	<div class="bottom-bt">
+		<%= button_to 'Checkout', new_order_path, method: :get, class:'btn btn-success' %>
+		<%= button_to 'Empty cart', cart, method: :delete, remote: true, class:'btn btn-danger' %>
+	</div>
+</div>
+<% else %>
+	<div class="alert alert-warning">The cart is <strong>empty</strong>!</div>
+<% end %>
+
+

@@ -1,0 +1,27 @@
+<div id ="notice">
+  <%= notice_color(notice)%>
+</div>
+
+<h1>Catalog</h1>
+<ul class="media-list">
+<ul>
+<% cache ['store', Product.latest] do %>
+  <% @products.each do |product| %>
+    <% cache ['media', product] do %>
+    <li class="media">
+      <div class="pull-left">
+        <%= image_tag(product.image_url, class: "media-object", alt: "#{product.title}'s covers book", size: "64x64") %>
+      </div>
+      <div class="media-body">
+        <h4> <%= product.title %> <span class="label label-default price"><%= number_to_currency(product.price) %></span></h4>
+        <p>
+          <%= strip_tags(product.description) %>
+        </p>
+        <%= button_to('Add to cart', line_items_path(product_id: product), { remote: true, class: "btn btn-default", role: "button" }) %>
+      </div>
+    </li>
+    <% end %>
+  <% end %>
+<% end %>
+  </ul>
+</ul>

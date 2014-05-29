@@ -8,14 +8,14 @@ module ApplicationHelper
   		cross_button = "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>"
   		notice_tag = div_tag_head + cross_button + message + "</div>"
   		notice_tag.to_s.html_safe
-  	end # If's end.
-  end   # Def's end.
+  	end
+  end
 
   def type_notice(notice)
     downcased = notice.downcase
     if downcased.include? 'error' or downcased.include? 'invalid'
-      return'danger'
-    elsif downcased.include? 'done' or downcased.include? 'success'
+      return 'danger'
+    elsif downcased.include? 'thanks' or downcased.include? 'success'
       return 'success'
     elsif downcased.include? 'hey'
       return 'warning'
