@@ -82,16 +82,5 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
     end
-
-    def who_bought
-      @product = Product.find(params[:id])
-      @lastest_order = @product.orders.order(:updated).last
-      if stale?(@lastest_order)
-        respond_to do |format|
-          format.atom
-        end
-      end
-    end
-
-    
+ 
 end

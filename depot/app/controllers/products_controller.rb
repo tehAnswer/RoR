@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :who_bought]
 
   # GET /products
   # GET /products.json
@@ -71,4 +71,15 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
     end
+
+    def who_bought
+      # @product = Product.find(params[:id])
+      @lastest_order = @product.orders.order(:updated).last
+      if stale?(@lastest_order)
+        respond_to do |format|
+          format.atom
+        end
+      end
+    end
+
 end
