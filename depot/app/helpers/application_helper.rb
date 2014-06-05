@@ -33,9 +33,8 @@ module ApplicationHelper
     }
 
     "<strong>#{messages[type.to_sym]}!</strong> #{notice}"
-end
+  end
+  
+  private :type_notice, :message_notice
 
-
-
-private :type_notice, :message_notice
 end 

@@ -26,6 +26,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
+    bcrypt-ruby (3.0.1)
     bootstrap_form (2.1.1)
     builder (3.1.4)
     coffee-rails (4.0.1)
@@ -110,6 +111,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   bootstrap_form
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
