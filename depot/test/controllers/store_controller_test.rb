@@ -7,8 +7,6 @@ class StoreControllerTest < ActionController::TestCase
     assert_response :success
     assert_select '.media', 3
     assert_select '.price', /\$[,\d]+\.\d\d/
-    assert_select 'time', minimum: 1
-    assert_select 'time', maximum: 1
   end
 
 end

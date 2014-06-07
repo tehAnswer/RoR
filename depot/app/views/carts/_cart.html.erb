@@ -1,13 +1,13 @@
-<h1>Cart</h1>
+<h1><%= t('.title') %></h1>
 <% if !cart.line_items.empty? %>
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>Product</td>
-			<th>Price</td>
-			<th>Quantity</td>
-			<th>Cost</td>
-			<th>Delete</td>
+			<th><%= t('.product') %></td>
+			<th><%= t('.price') %></td>
+			<th><%= t('.quantity') %></td>
+			<th><%= t('.cost') %></td>
+			<th><%= t('.delete') %></td>
 		</tr>
 		<%= render(cart.line_items) %>
 		<tr>
@@ -18,12 +18,12 @@
 </table>
 <div>
 	<div class="bottom-bt">
-		<%= button_to 'Checkout', new_order_path, method: :get, class:'btn btn-success' %>
-		<%= button_to 'Empty cart', cart, method: :delete, remote: true, class:'btn btn-danger' %>
+		<%= button_to t('.checkout'), new_order_path, method: :get, class:'btn btn-success' %>
+		<%= button_to t('.empty'), cart, method: :delete, remote: true, class:'btn btn-danger' %>
 	</div>
 </div>
 <% else %>
-	<div class="alert alert-warning">The cart is <strong>empty</strong>!</div>
+	<div class="alert alert-warning"><%= t('.cart_is').html_safe %>!</div>
 <% end %>
 
 

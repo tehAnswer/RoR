@@ -13,9 +13,9 @@ module ApplicationHelper
 
   def type_notice(notice)
     downcased = notice.downcase
-    if downcased.include? 'error' or downcased.include? 'invalid'
+    if downcased.include? 'error' or downcased.include? 'invalid' or downcased.include? 'no'
       return 'danger'
-    elsif downcased.include? 'thanks' or downcased.include? 'success'
+    elsif downcased == t('thanks').downcase or downcased.include? 'success'
       return 'success'
     elsif downcased.include? 'hey'
       return 'warning'
@@ -26,10 +26,10 @@ module ApplicationHelper
 
   def message_notice(type, notice)
     messages = {
-      :danger => 'Oops, something wrong happened',
-      :success => 'Done',
-      :warning => 'Hey, be careful',
-      :info => 'News, news'
+      :danger => t('danger_header'),
+      :success => t('success_header'),
+      :warning => t('warning_header'),
+      :info => t('info_header')
     }
 
     "<strong>#{messages[type.to_sym]}!</strong> #{notice}"

@@ -18,6 +18,82 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+
+  danger_header: "Oops, something wrong happened"
+  success_header: Done
+  info_header: "Hey, be careful"
+  warning_header: "News, news"
+
+  layouts:
+    application:
+      title:            "Books online"
+      home:             "Home"
+      questions:        "Questions"
+      news:             "News"
+      search:           "Search"
+      contact:          "Contact"
+      submit:           "Submit"
+      sign_in:          "Sign in"
+
+  store:
+    index:
+      catalog:          "Catalog"
+      add:              "Add"
+
+  carts:
+    cart:
+      title:            "Cart"
+      empty:             "Empty cart"
+      checkout:         "Checkout"
+      cart_is:             "The cart is <strong>empty</strong>"
+      product:             "Product"
+      price:             "Price"
+      quantity:             "Quantity"
+      cost:             "Cost"
+      delete:             "Delete"
+
+  orders:
+    new:
+      form_details:     "Please, fill the form"
+
+    form:
+      name:             "Name"
+      address:          "Address"
+      select_pay_type:  "Select one payment method..."
+      email:            "Email"
+      place_order:      "Place order"
+      pay_type:         "Pay type"
+
+  number:
+    currency:
+      format:
+        unit:			      "$"
+        precision:		  2
+        separator:		  "."
+        delimeter:		  ","
+        format:			    "%u%n"
+
+  activerecord:
+    models:
+       order:           "order"
+
+    attributes:
+      address:          "Address"
+      name:             "Name"
+      email:            "Email"
+      pay_type:         "Pay type"
+
+    errors:
+       messages:
+         inclusion:     "is not included."
+         blank:         "can't be blank."
+
+
+
+
+  errors:
+    template:
+      header:
+        one:            "1 error prohibited this %{model} from being completed"
+        other:          "%{count} errors prohibited this %{model} from being completed"
