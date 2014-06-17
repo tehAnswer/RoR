@@ -1,0 +1,14 @@
+<h1>Hello from Rails!</h1>
+
+<h2>Directory (<%= @files.size%> folders)</h2>
+	
+<ul>
+	<% @files.each do |item| %>
+		<li> <%=item%> </li>
+	 <% end %>
+</ul>
+	
+<p>
+	It is time to say <%= link_to "Goodbye", say_goodbye_path %> because it's <%=-1.hour.from_now.localtime%>!
+</p>
+

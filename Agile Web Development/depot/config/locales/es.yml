@@ -1,0 +1,69 @@
+--- 
+es:
+  thanks: 'Gracias por su pedido'
+  danger_header: "Oh, algo salió mal"
+  success_header: Hecho
+  info_header: "Eh, atento"
+  warning_header: Cuidado
+  
+  activerecord: 
+    attributes: 
+      order:
+        address: Dirección
+        email: Email
+        name: Nombre
+        pay_type: "Método de pago"
+    errors: 
+      messages: 
+        blank: "no puede quedar en blanco."
+        inclusion: "no está incluido en la lista."
+    models: 
+      order: pedido
+  carts: 
+    cart: 
+      cart_is: "La cesta está <strong>vacía</strong>"
+      checkout: Comprar
+      cost: Coste
+      delete: Borrar
+      empty: Vaciar
+      price: Precio
+      product: Nombre
+      quantity: Cantidad
+      title: "Cesta de la compra"
+  errors: 
+    template: 
+      header: 
+        one: "1 error ha impedido que %{model} se complete"
+        other: "%{count} errores han impedido que este %{model} se complete"
+  layouts: 
+    application: 
+      contact: Contacto
+      home: Portada
+      news: Noticias
+      questions: Preguntas
+      search: Buscar
+      sign_in: Identificarse
+      submit: Enviar
+      title: "Librería online"
+  number: 
+    currency: 
+      format: 
+        delimeter: "."
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        unit: €
+  orders: 
+    form: 
+      address: Dirección
+      email: Email
+      name: Nombre
+      pay_type: "Método de pago"
+      place_order: "Confirmar pedido"
+      select_pay_type: "Seleciona un método de pago..."
+    new: 
+      form_details: "Por favor, introduzca sus datos"
+  store: 
+    index: 
+      add: Añadir
+      catalog: Catálogo
