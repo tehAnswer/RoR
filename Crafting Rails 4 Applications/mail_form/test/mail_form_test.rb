@@ -2,7 +2,7 @@ require 'test_helper'
 require 'fixtures/sample_mail'
 
 class MailFormTest < ActiveSupport::TestCase
-  test "sample mail has name and email" do
+  test 'sample mail has name and email' do
     sample = SampleMail.new
 
     sample.name = ''
@@ -24,6 +24,19 @@ class MailFormTest < ActiveSupport::TestCase
     assert_nil sample.email
   end
 
+  test 'deliver' do
+    sample = SampleMail.new
+    sample.email = 'nicki@minaj.com'
+    sample.deliver
 
-  
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal ['nicki@minaj.com'], mail.from
+    assert_match 'Email: nicki@minaj.com', mail.body.encoded
+  end
+
+
+
+
+ 
 end
