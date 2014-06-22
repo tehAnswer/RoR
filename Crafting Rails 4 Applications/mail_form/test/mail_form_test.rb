@@ -35,6 +35,19 @@ class MailFormTest < ActiveSupport::TestCase
     assert_match 'Email: nicki@minaj.com', mail.body.encoded
   end
 
+  test 'honey pot spam' do
+    sample = SampleMail.new nickname: 'Drake Drizzy'
+    assert !sample.valid?
+    assert_equal ["must be blank"], sample.errors[:nickname]
+  end
+
+  test 'provides hooks and callbacks' do
+    sample = SampleMail.new email: 'nicki@minaj.com'
+    sample.deliver
+    assert_equal [:before, :after], sample.evaluated_callbacks
+  end
+
+
 
 
 
