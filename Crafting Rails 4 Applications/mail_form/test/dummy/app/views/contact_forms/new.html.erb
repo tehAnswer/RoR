@@ -1,0 +1,11 @@
+<h1>Contact</h1>
+
+<div class="col-md-8 col-xs-offset-1">
+	<%= bootstrap_form_for(@contact_form) do |f| %>
+		<%= f.text_field :nickname, placeholder: 'This field is a honey pot for spammers. Don\'t fill it!'  %>
+  		<%= f.text_field :name %>
+  		<%= f.email_field :email %>
+  		<%= f.text_area :message, rows: 10 %>
+  		<%= f.submit 'Deliver' %>
+	<% end %>
+</div>
