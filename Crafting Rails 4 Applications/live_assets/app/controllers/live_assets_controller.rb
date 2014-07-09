@@ -14,12 +14,11 @@ class LiveAssetsController < ActionController::Base
     response.headers["Cache-Control"] = "no-cache"
     response.headers["Content-Type"] = "text/event-stream"
 
-    while true
-      response.stream.write "event: css reload\ndata:{}\n\n"
-      sleep 1
-    end
+    sse = LiveAssets::SSESubscriber.new
+    sse.each { |msg| response.stream.write msg }
 
   rescue IOError
+    sse.close
     response.stream.close
   end
 

@@ -5,13 +5,19 @@ require "listen"
 module LiveAssets
   mattr_reader :subscribers
   @@subscribers = []
+
   # Subscribe to all published events.
+  @@mutex = Mutex.new
   def self.subscribe(subscriber)
-    subscribers << subscriber
+    @@mutex.synchronize do
+      subscribers << subscriber
+    end
   end
-  # Unsubscribe an existing subscriber.
+
   def self.unsubscribe(subscriber)
-    subscribers.delete(subscriber)
+    @@mutex.synchronize do
+      subscribers.delete(subscriber)
+    end
   end
   # Start a listener for the following directories.
   # Every time a change happens, publish the given
@@ -20,6 +26,15 @@ module LiveAssets
     Thread.new do
       Listen.to(*directories, latency: 0.5) do |_modified, _added, _removed|
         subscribers.each { |s| s << event }
+      end
+    end
+  end
+
+  def self.start_timer(event,time)
+    Thread.new do
+      while true
+        subscribers.each { |s| s << event }
+        sleep(time)
       end
     end
   end
